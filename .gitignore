@@ -41,7 +41,6 @@ proguard/
 *.log
 
 # Android Studio Navigation editor temp files
-.navigation/
 
 # Android Studio captures folder
 captures/
@@ -309,5 +308,7 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
-
+secret.js
+/secret
+secret/
 # End of https://www.toptal.com/developers/gitignore/api/reactnative
