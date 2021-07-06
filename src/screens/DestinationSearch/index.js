@@ -8,7 +8,7 @@ const DestinationSearch = () => {
   const [originPlace, setOriginPlace] = useState(null);
   const [destinationPlace, setDestinationPlace] = useState(null);
   useEffect(() => {
-    console.warn('useEffect is Called');
+    // console.warn('useEffect is Called');
     if (originPlace && destinationPlace) {
       console.warn('Redirect to results');
     }
