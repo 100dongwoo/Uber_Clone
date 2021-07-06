@@ -1,6 +1,7 @@
 import React from 'react';
 import {ScrollView, Text, View, Dimensions} from 'react-native';
 import HomeMap from '../../components/HomeMap';
+import RouteMap from '../../components/RouteMap';
 import DestinationSearch from '../DestinationSearch';
 import UserTypes from '../../components/UserTypes';
 
