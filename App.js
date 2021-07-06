@@ -8,7 +8,7 @@ const App: () => Node = () => {
   return (
     <>
       <StatusBar barStyle={'dark-content'} />
-      <SearchResults />
+      <HomeScreen />
     </>
   );
 };
