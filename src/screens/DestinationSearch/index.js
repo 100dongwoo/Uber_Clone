@@ -8,6 +8,14 @@ import PlaceRow from './PlaceRow';
 const DestinationSearch = () => {
   const [originPlace, setOriginPlace] = useState(null);
   const [destinationPlace, setDestinationPlace] = useState(null);
+  const homePlace = {
+    description: 'Home',
+    geometry: {location: {lat: 48.8152937, lng: 2.4597668}},
+  };
+  const workPlace = {
+    description: 'Work',
+    geometry: {location: {lat: 48.8496818, lng: 2.2940881}},
+  };
   useEffect(() => {
     // console.warn('useEffect is Called');
     if (originPlace && destinationPlace) {
@@ -18,6 +26,7 @@ const DestinationSearch = () => {
     <SafeAreaView>
       <View style={styles.container}>
         <GooglePlacesAutocomplete
+          predefinedPlaces={[homePlace, workPlace]}
           enablePoweredByContainer={false}
           suppressDefaultStyles
           placeholder="Where from"
@@ -40,6 +49,7 @@ const DestinationSearch = () => {
             language: 'en',
           }}
           renderRow={data => <PlaceRow data={data} />}
+          renderDescription={data => data.description || data.vicinity}
         />
         <GooglePlacesAutocomplete
           enablePoweredByContainer={false}

@@ -12,4 +12,4 @@ Uber_Clone with react-native init
 
 [comment]: <> (AIzaSyAo9SSyTvW2H7_rebLCbrYXzjpZuDKmWv8&#41; )
 
-1:40
+1:37
