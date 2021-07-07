@@ -10,7 +10,7 @@ const UserTypes = () => {
   return (
     <View>
       {types.map(type => (
-        <UberTypeRow type={type} />
+        <UberTypeRow type={type} key={type.id} />
       ))}
       {/*<UberTypeRow />*/}
       <Pressable

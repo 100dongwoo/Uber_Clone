@@ -3,7 +3,7 @@ import {Image, FlatList, View} from 'react-native';
 import MapView, {Marker, PROVIDER_GOOGLE} from 'react-native-maps';
 import cars from '../../assets/data/cars';
 import MapViewDirections from 'react-native-maps-directions';
-import {Google_API, Google_API_tEST} from '../../secret/secret';
+import {Google_API} from '../../secret/secret';
 
 const RouteMap = () => {
   const origin = {
