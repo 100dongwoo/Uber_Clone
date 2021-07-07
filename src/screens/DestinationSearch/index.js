@@ -19,7 +19,10 @@ const DestinationSearch = () => {
       <View style={styles.container}>
         <GooglePlacesAutocomplete
           enablePoweredByContainer={false}
+          suppressDefaultStyles
           placeholder="Where from"
+          currentLocation={true}
+          currentLocationLabel="Current location"
           onPress={(data, details = null) => {
             // 'details' is provided when fetchDetails = true
             // console.log(data, details);
