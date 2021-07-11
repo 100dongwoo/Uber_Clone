@@ -5,7 +5,20 @@ import cars from '../../assets/data/cars';
 import MapViewDirections from 'react-native-maps-directions';
 import {Google_API} from '../../secret/secret';
 
-const RouteMap = () => {
+const RouteMap = ({origin, destination}) => {
+  const originLoc = {
+    latitude: origin.details.geometry.location.lat,
+    longitude: origin.details.geometry.location.lng,
+  };
+
+  const destinationLoc = {
+    latitude: destination.details.geometry.location.lat,
+    longitude: destination.details.geometry.location.lng,
+  };
+
+  // const originLoc = origin.detail.geometry.location.lat;
+  // const destinationLoc = destination.detail.geometry.location.lng;
+
   const getImage = type => {
     if (type === 'UberX') {
       return require('../../assets/Images/top-UberX.png');
@@ -15,14 +28,7 @@ const RouteMap = () => {
     }
     return require('../../assets/Images/top-UberXL.png');
   };
-  const origin = {
-    latitude: 28.450627,
-    longitude: -16.269045,
-  };
-  const destination = {
-    latitude: 28.450127,
-    longitude: -16.263045,
-  };
+
   return (
     <MapView
       style={{width: '100%', height: '100%'}}
@@ -35,14 +41,14 @@ const RouteMap = () => {
         longitudeDelta: 0.0121,
       }}>
       <MapViewDirections
-        origin={origin}
-        destination={destination}
+        origin={originLoc}
+        destination={destinationLoc}
         apikey={Google_API}
         strokeWidth={5}
         strokeColor="black"
       />
-      <Marker coordinate={origin} title={'Origin'} />
-      <Marker coordinate={destination} title={'Destination'} />
+      <Marker coordinate={originLoc} title={'Origin'} />
+      <Marker coordinate={destinationLoc} title={'Destination'} />
       {cars.map(car => (
         <Marker
           key={car.id}
