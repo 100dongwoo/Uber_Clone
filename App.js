@@ -3,7 +3,9 @@ import type {Node} from 'react';
 import {PermissionsAndroid, Platform, StatusBar} from 'react-native';
 import DestinationSearch from './src/screens/DestinationSearch';
 import Geolocation from '@react-native-community/geolocation';
+import Router from './src/navigation/Root';
 import HomeScreen from './src/screens/HomeScreen';
+
 navigator.geolocation = require('@react-native-community/geolocation');
 const App: () => Node = () => {
   const androidPermission = async () => {
@@ -40,7 +42,7 @@ const App: () => Node = () => {
   return (
     <>
       <StatusBar barStyle={'dark-content'} />
-      <HomeScreen />
+      <Router />
     </>
   );
 };

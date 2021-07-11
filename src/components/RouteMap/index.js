@@ -6,6 +6,15 @@ import MapViewDirections from 'react-native-maps-directions';
 import {Google_API} from '../../secret/secret';
 
 const RouteMap = () => {
+  const getImage = type => {
+    if (type === 'UberX') {
+      return require('../../assets/Images/top-UberX.png');
+    }
+    if (type === 'Comfort') {
+      return require('../../assets/Images/top-Comfort.png');
+    }
+    return require('../../assets/Images/top-UberXL.png');
+  };
   const origin = {
     latitude: 28.450627,
     longitude: -16.269045,
@@ -34,6 +43,25 @@ const RouteMap = () => {
       />
       <Marker coordinate={origin} title={'Origin'} />
       <Marker coordinate={destination} title={'Destination'} />
+      {cars.map(car => (
+        <Marker
+          key={car.id}
+          coordinate={{latitude: car.latitude, longitude: car.longitude}}>
+          <Image
+            style={{
+              width: 70,
+              height: 70,
+              resizeMode: 'contain',
+              transform: [
+                {
+                  rotate: `${car.heading}deg`,
+                },
+              ],
+            }}
+            source={getImage(car.type)}
+          />
+        </Marker>
+      ))}
     </MapView>
   );
 };
