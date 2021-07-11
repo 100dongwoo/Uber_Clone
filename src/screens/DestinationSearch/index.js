@@ -8,6 +8,7 @@ import {useNavigation} from '@react-navigation/native';
 
 const DestinationSearch = () => {
   const navigation = useNavigation();
+
   const [originPlace, setOriginPlace] = useState(null);
   const [destinationPlace, setDestinationPlace] = useState(null);
   const homePlace = {
@@ -18,11 +19,17 @@ const DestinationSearch = () => {
     description: 'Work',
     geometry: {location: {lat: 48.8496818, lng: 2.2940881}},
   };
+  const checkNavigation = () => {
+    if (originPlace && destinationPlace) {
+      navigation.navigate('SearchResults', {
+        originPlace,
+        destinationPlace,
+      });
+    }
+  };
   useEffect(() => {
     // console.warn('useEffect is Called');
-    if (originPlace && destinationPlace) {
-      navigation.navigate('SearchResults');
-    }
+    checkNavigation();
   }, [originPlace, destinationPlace]);
   return (
     <SafeAreaView>

@@ -4,8 +4,11 @@ import HomeMap from '../../components/HomeMap';
 import RouteMap from '../../components/RouteMap';
 import DestinationSearch from '../DestinationSearch';
 import UserTypes from '../../components/UserTypes';
+import {useRoute} from '@react-navigation/native';
 
-const SearchResults = () => {
+const SearchResults = props => {
+  const route = useRoute();
+  console.log(route.params, 'asdsad');
   return (
     <View style={{display: 'flex', justifyContent: 'space-between'}}>
       <View style={{height: Dimensions.get('window').height - 400}}>
